@@ -127,6 +127,25 @@
     justify-items: center;
 }
 
+.left label{
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.left select{
+    padding: 12px 40px 12px 14px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e6ccb2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    outline: none;
+}
+
 .apps > div {
 
 }
