@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg_gradient: linear-gradient(135deg, #1c110e 0%, #5c3e35 100%);
+    --panel-bg: rgba(245, 235, 230, 0.05);
+    --panel-border: rgba(221, 184, 146, 0.15);
+    --text-color: #f7ebe1;
+    --accent-color: #e6ccb2;
+    --radius: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--bg_gradient);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    min-height: 100vh;
+}
