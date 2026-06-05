@@ -5,17 +5,23 @@ import UserList from "./components/userList.jsx";
 import DashBoard from "./components/dashBoard.jsx";
 import PhoneSimulator from "./components/phoneSimulator.jsx";
 import {fetchBackgrounds} from "./api/backgroundApi.js";
+import {fetchIcons} from "./api/iconApi.js";
+import {fetchApplications} from "./api/applicationApi.js";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [backgrounds, setBackgrounds] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [icons, setIcons] = useState([]);
+  const [applications, setApplications] = useState([]);
 
   useEffect(() => {
       async function getAllData() {
-        const [usersData, backgroundsData] = await Promise.all([fetchUsers(), fetchBackgrounds()]);
+        const [usersData, backgroundsData, iconsData, appsData] = await Promise.all([fetchUsers(), fetchBackgrounds(), fetchIcons(), fetchApplications()]);
         setUsers(usersData);
         setBackgrounds(backgroundsData);
+        setIcons(iconsData);
+        setApplications(appsData);
       }
       getAllData();
       }, []);
@@ -29,15 +35,20 @@ function App() {
       setBackgrounds(data);
   }
 
+  async function reloadIcons() {
+      const data = await fetchIcons();
+      setIcons(data);
+  }
+
   return (
     <div className="app">
       <div className="left">
         <h1>Family App Manager</h1>
         <UserList users={users} onSelectUser={setSelectedUser} onUserAdded={reloadUsers} onBackgroundAdded={reloadBackgrounds} />
-        <DashBoard selectedUser={selectedUser} onUserChanged={reloadUsers} backgrounds={backgrounds} />
+        <DashBoard selectedUser={selectedUser} onUserChanged={reloadUsers} backgrounds={backgrounds} icons={icons} applications={applications}  />
       </div>
       <div className="right">
-        <PhoneSimulator selectedUser={selectedUser}/>
+        <PhoneSimulator selectedUser={selectedUser} icons={icons} applications={applications} onIconsChanged={reloadIcons} />
       </div>
     </div>
   );

@@ -59,7 +59,6 @@
     font-size: 14px;
     font-family: inherit;
     outline: none;
-
 }
 
 .left button {
@@ -125,6 +124,8 @@
     gap: 20px;
     padding: 20px;
     justify-items: center;
+    align-items: start;
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .left label{
@@ -147,21 +148,68 @@
 }
 
 .apps > div {
-
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: var(--radius);
+    display: flex;
+    text-align: center;
+    padding: 10px;
+    color: #2d1d18;
+    background: rgba(44, 29, 24, 0.15);
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .apps > div:hover {
-
+    transform: scale(1.1);
+    background: rgba(44, 29, 24, 0.15);
 }
 
 .appView {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    color: #2d1d18;
+    gap: 15px;
+}
 
+.appView h4 {
+    color: #1c110e;
+}
+
+.appView input {
+    border-radius: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--panel-border);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
 }
 
 .appView button {
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    background: #2d1d18;
+    color: #e6ccb2;
+    transition: all 0.2s ease;
+}
 
+.appView select {
+    border-radius: 8px;
+    padding: 10px 14px;
+    background: #2d1d18;
+    color: #e6ccb2;
+    font-family: inherit;
+    font-weight: bold;
 }
 
 .appView button:hover {
-
+    filter: brightness(1.1);
+    transform: translateY(-1px);
 }
